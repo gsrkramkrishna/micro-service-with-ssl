@@ -1,2 +1,9 @@
 # micro-service-with-ssl
 Calling another Microservice(service can access via certificates) from Microservice with SSL
+
+
+1.  A microservice is exposed and can accessable through secured way. Assume it's a Course-Service, which is exposed and can accessable through secured way. Generated certificates for Course Service, which can be used by Enroll-Service.
+2.  Another microservice is, Enroll-Service trying to access the previous service in step 1. Please follow the below steps to access the above service.
+    a.  once received the certificate of Course-Service. Import the certificate using the keytool command. Go to the cacerts folder location: %JAVA_HOME%/jre/lib/security
+    keytool -import -alias alias_name -file file_location -keystore cacerts - defualt password is changeit.
+    b.  Please configre the same jdk to Enroll-Service and call the Course-Service.
